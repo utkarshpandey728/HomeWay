@@ -9,8 +9,18 @@ dotenv.config({
 
 
 
+// as connectDB is async fn(), it also returns a promise, so we can use .then() to start our server after the connection is established. We will be using the PORT environment variable to start our server.
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`Server is running on port : ${process.env.PORT}`);
+    });
+})
+.catch((err)=>{
+    console.log("Error connecting to MongoDB from index.js:", err);
+})
 
-connectDB();
+
 
 
 
