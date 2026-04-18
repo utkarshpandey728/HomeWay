@@ -1,12 +1,11 @@
 // require('dotenv').config({path: './.env'});
 import dotenv from "dotenv";
 import connectDB from "./db/db.js";
+import {app} from "./app.js";
 
 dotenv.config({
     path: "./.env"
 })
-
-
 
 
 // as connectDB is async fn(), it also returns a promise, so we can use .then() to start our server after the connection is established. We will be using the PORT environment variable to start our server.
